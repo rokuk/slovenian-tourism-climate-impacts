@@ -1,0 +1,61 @@
+---
+title: "HCI"
+output: github_document
+---
+
+This code reads data from netcdf files (downloaded from [CDS](https://cds.climate.copernicus.eu/cdsapp#!/dataset/sis-tourism-climate-suitability-indicators?tab=overview)) and makes plots for selected stations showing HCI values
+under different RCP scenarios.
+
+## Importing libraries and data
+
+```{r}
+source("common.R", local = knitr::knit_global())
+```
+
+Read and process all data for HCI:
+
+```{r}
+all_hci_data <- assembledata("hci")
+```
+
+All relevant data is in `alldata`, where column `stationid` is the index of 
+the grid point in the raw imported data, `scenario` is either "historical", 
+"RCP2.6", "RCP4.5" or "RCP8.5", `time_period` is either "1986-2005", "2021-2040", 
+"2041-2060" or "2081-2100", `metric` is the mean, 10th percentile or 90th 
+percentile, `day_cat` is either "fair", "good" or "unf" (category determined based on HCI value), `datapoint` is the count of days in `day_cat` category for a specific month and metric, 
+`month` is the month for which the datapoint was calculated.
+
+```{r}
+head(all_hci_data)
+```
+
+## Plots
+
+Plot data for all stations and scenarios:
+
+```{r, fig.width=9, fig.height=4, dev='svg'}
+for (stat_id in gridpoint_indexes) {
+    for (scen in scenarios) {
+        p <- plothcidata(stat_id, scen, all_hci_data)
+        print(p)
+    }
+}
+```
+
+Save all the plots:
+
+```{r, eval=FALSE}
+for (stat_id in gridpoint_indexes) {
+    for (scen in scenarios) {
+        stat_name <- names[match(stat_id, gridpoint_indexes)]
+        print(paste("HCI", stat_name, scen))
+
+        p <- plothcidata(stat_id, scen, all_hci_data)
+        
+        ggsave(paste("copernicus-HCI_", gsub(" ", "_", stat_name), "_", scen, ".pdf", sep=""), p, width=9, height=4, units="in", path="../output/pdf/copernicus-HCI", device=cairo_pdf)
+        ggsave(paste("copernicus-HCI_", gsub(" ", "_", stat_name), "_", scen, ".eps", sep=""), p, width=9, height=4, units="in", path="../output/eps/copernicus-HCI", device=cairo_ps)
+        ggsave(paste("copernicus-HCI_", gsub(" ", "_", stat_name), "_", scen, ".svg", sep=""), p, width=9, height=4, units="in", path="../output/svg/copernicus-HCI")
+        ggsave(paste("copernicus-HCI_", gsub(" ", "_", stat_name), "_", scen, ".png", sep=""), p, width=9, height=4, units="in", path="../output/png/copernicus-HCI", dpi=500)
+    }
+}
+```
