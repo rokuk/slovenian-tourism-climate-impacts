@@ -9,7 +9,7 @@ Code is in the [R](/R) folder:
 - Choice of gridpoints from the Copernicus dataset (for CIT and HCI) is described in [CIT-HCI-gridpoints.md](/R/CIT-HCI-gridpoints.md)
 - Analysis of snow indicators from Copernicus is in [Snow.md](/R/Snow.md)
 - Analysis for a few chosen ARSO stations is in [WeatherStations.md](/R/WeatherStations.md)
-- Calculation of CIT and HCI from ARSO data is in [ARSO-CIT-HCI.md](/R/ARSO-CIT-HCI.md)
+- Calculation of CIT, HCI and ET from ARSO data is in [ARSO-CIT-HCI.md](/R/ARSO-CIT-HCI.md)
 
 Figures are in the [output](/output) folder.
 
