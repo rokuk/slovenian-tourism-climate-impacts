@@ -246,6 +246,12 @@ for (var in filenames) {
 }
 ```
 
+    ## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+    ## ℹ Please use `linewidth` instead.
+    ## This warning is displayed once every 8 hours.
+    ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+    ## generated.
+
 ![](WeatherStations_files/figure-gfm/unnamed-chunk-8-1.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-2.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-3.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-4.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-5.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-6.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-7.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-8.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-9.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-10.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-11.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-12.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-13.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-14.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-15.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-16.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-17.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-18.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-19.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-20.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-21.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-22.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-23.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-24.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-25.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-26.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-27.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-28.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-29.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-30.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-31.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-32.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-33.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-34.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-35.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-36.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-37.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-38.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-39.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-40.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-41.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-42.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-43.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-44.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-45.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-46.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-47.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-48.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-49.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-50.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-51.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-52.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-53.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-54.svg)<!-- -->![](WeatherStations_files/figure-gfm/unnamed-chunk-8-55.svg)<!-- -->
 
 ``` r
@@ -264,14 +270,16 @@ Save all the plots:
 ``` r
 for (var in filenames) {
     for (stat_name in stationnames_raw) {
-        print(paste(var, stat_name))
+        if (var != "snow" & stat_name != "Kočevje") { # no snow plots for Kočevje
+            print(paste(var, stat_name))
 
-        p <- plotdata(alldata, var, stat_name)
+            p <- plotdata(alldata, var, stat_name)
         
-        ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".pdf", sep=""), p, width=9, height=4, units="in", path="../output/pdf/arso", device=cairo_pdf)
-        ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".eps", sep=""), p, width=9, height=4, units="in", path="../output/eps/arso", device=cairo_ps)
-        ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".svg", sep=""), p, width=9, height=4, units="in", path="../output/svg/arso")
-        ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".png", sep=""), p, width=9, height=4, units="in", path="../output/png/arso", dpi=500)
+            #ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".pdf", sep=""), p, width=9, height=4, units="in", path="../output/pdf/arso", device=cairo_pdf)
+            #ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".eps", sep=""), p, width=9, height=4, units="in", path="../output/eps/arso", device=cairo_ps)
+            #ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".svg", sep=""), p, width=9, height=4, units="in", path="../output/svg/arso")
+            ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".png", sep=""), p, width=9, height=4, units="in", path="../output/png/arso", dpi=500)
+        }
     }
 }
 ```
@@ -283,9 +291,9 @@ for (var in filenames) {
 
         p <- plotdata2(alldata, var, scen)
             
-        ggsave(paste("arso2_", scen, "_", var, ".pdf", sep=""), p, width=9, height=8, units="in", path="../output/pdf/arso", device=cairo_pdf)
-        ggsave(paste("arso2_", scen, "_", var, ".eps", sep=""), p, width=9, height=8, units="in", path="../output/eps/arso", device=cairo_ps)
-        ggsave(paste("arso2_", scen, "_", var, ".svg", sep=""), p, width=9, height=8, units="in", path="../output/svg/arso")
+        #ggsave(paste("arso2_", scen, "_", var, ".pdf", sep=""), p, width=9, height=8, units="in", path="../output/pdf/arso", device=cairo_pdf)
+        #ggsave(paste("arso2_", scen, "_", var, ".eps", sep=""), p, width=9, height=8, units="in", path="../output/eps/arso", device=cairo_ps)
+        #ggsave(paste("arso2_", scen, "_", var, ".svg", sep=""), p, width=9, height=8, units="in", path="../output/svg/arso")
         ggsave(paste("arso2_", scen, "_", var, ".png", sep=""), p, width=9, height=8, units="in", path="../output/png/arso", dpi=500)
     }
 }

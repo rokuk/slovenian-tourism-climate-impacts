@@ -16,6 +16,7 @@ library(ggplot2)
 library(sf)
 library(rnaturalearth)
 library(ggspatial)
+library(svglite)
 ```
 
 Load country shape data for maps:
@@ -64,8 +65,8 @@ We chose stations near major tourist areas based on the availability of station 
 We manually choose points on the model grid near the stations. The chosen points:
 
 ```{r}
-names <- c("Rateče", "Bilje", "Koper", "Ljubljana", "Kočevje", "Cerklje ob Krki", "Novo mesto", "Celje", "Slovenj Gradec", "Maribor", "Murska Sobota")
-gridpoint_indexes <- c(706, 661, 698, 902, 979, 1141, 1060, 1064, 1066, 1186, 1347) # these values should be the same as in the file common.R
+names <- c("Rateče", "Bilje", "Koper", "Ljubljana", "Kočevje", "Cerklje ob Krki", "Novo mesto", "Celje", "Slovenj Gradec", "Maribor", "Murska Sobota", "Godnje")
+gridpoint_indexes <- c(706, 661, 698, 902, 979, 1141, 1060, 1064, 1066, 1186, 1347, 740) # these values should be the same as in the file common.R
 
 chosen_gridpoints <- data.frame(
     lon = grid %>% filter(grid$id %in% gridpoint_indexes & grid$month == "jan") %>% pull(lon),

@@ -12,8 +12,8 @@ time_periods <- c("2021_2040", "2041_2060", "2081_2100")
 day_categories <- c("fair", "good", "unf")
 metrics <- c("mean", "10prct", "90prct")
 
-names <- c("Rateče", "Bilje", "Koper", "Ljubljana", "Kočevje", "Cerklje ob Krki", "Novo mesto", "Celje", "Slovenj Gradec", "Maribor", "Murska Sobota")
-gridpoint_indexes <- c(706, 661, 698, 902, 979, 1141, 1060, 1064, 1066, 1186, 1347) # these points of the grid are manualy chosen, see CIT-HCI-gridpoints file
+names <- c("Rateče", "Bilje", "Koper", "Ljubljana", "Kočevje", "Cerklje ob Krki", "Novo mesto", "Celje", "Slovenj Gradec", "Maribor", "Murska Sobota", "Godnje")
+gridpoint_indexes <- c(706, 661, 698, 902, 979, 1141, 1060, 1064, 1066, 1186, 1347, 740) # these points of the grid are manualy chosen, see CIT-HCI-gridpoints file
 
 "The datasets downloaded from CDS are saved in netcdf files. We define a 
 function that opens the file, reads longitude, latitude, rotated longitude, 
@@ -203,7 +203,7 @@ plotcitdata <- function(stat_id, scen, alldata) {
     p <- ggplot(data=subset,
                 mapping=aes(x=time_period, y=datapoint, fill=day_cat)) +
         geom_col() +
-        geom_errorbar(mapping=aes(ymax=upper, ymin=lower, color=day_cat)) + # to disable errorbars comment this line
+#        geom_errorbar(mapping=aes(ymax=upper, ymin=lower, color=day_cat)) + # to disable errorbars comment this line
         scale_colour_manual(values = c("#490000", "#000000", "#005137"), guide="none") + # errorbar color
         facet_grid(~month) +
         scale_y_continuous(expand = expansion(mult = c(0, 0.02)), 
@@ -233,7 +233,7 @@ plothcidata <- function(stat_id, scen, alldata) {
     p <- ggplot(data=subset,
                 mapping=aes(x=time_period, y=datapoint, fill=day_cat)) +
         geom_col() +
-        geom_errorbar(mapping=aes(ymax=upper, ymin=lower, color=day_cat)) + # to disable errorbars comment this line
+#        geom_errorbar(mapping=aes(ymax=upper, ymin=lower, color=day_cat)) + # to disable errorbars comment this line
         scale_colour_manual(values = c("#490000", "#000000", "#005137"), guide="none") + # errorbar color
         facet_grid(~month) +
         scale_y_continuous(expand = expansion(mult = c(0, 0.02)), 

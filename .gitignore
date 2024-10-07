@@ -2,3 +2,4 @@
 .Rproj.user
 *_cache
 R/geodata/
+.DS_Store

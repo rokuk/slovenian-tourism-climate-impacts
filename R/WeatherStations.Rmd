@@ -15,10 +15,12 @@ library(forcats)
 library(ggplot2)
 ```
 
-Define variable values:
+Define constants:
 
 ```{r}
+# input data files
 filenames <- c("rr1", "rr2", "snow", "warm", "hot", "tropical") # excel file names
+
 variablenames <- c("Days with at least 1 mm of precipitation", "Days with at least 20 mm of precipitation", "Days with snow", expression("Warm days (T"["max"]*" \u2265 25\u00B0C)"), expression("Hot days (T"["max"]*" \u2265 30\u00B0C)"), expression("Tropical nights (T"["min"]*" \u2265 20\u00B0C)")) # display variable names
 axislabels <- c("percentage of days per month", "percentage of days per month", "percentage of days per month", "percentage of days per month", "percentage of days per month", "percentage of nights per month")
 projnames <- c("RCP45", "RCP85", "RCP26") # excel sheet names
@@ -125,6 +127,8 @@ datadays28_2 <- filter(alldata, month == "feb" & period != "2011-2040") %>%
 alldata <- rbind(datadays31, datadays30, datadays28_1, datadays28_2)
 ```
 
+The values are divided by the number of days in each month. There are different 
+
 ## Plots
 
 ```{r}
@@ -209,12 +213,12 @@ for (var in filenames) {
     for (stat_name in stationnames_raw) {
         if (var != "snow" & stat_name != "Kočevje") { # no snow plots for Kočevje
             print(paste(var, stat_name))
-
+            
             p <- plotdata(alldata, var, stat_name)
         
-            ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".pdf", sep=""), p, width=9, height=4, units="in", path="../output/pdf/arso", device=cairo_pdf)
-            ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".eps", sep=""), p, width=9, height=4, units="in", path="../output/eps/arso", device=cairo_ps)
-            ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".svg", sep=""), p, width=9, height=4, units="in", path="../output/svg/arso")
+            #ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".pdf", sep=""), p, width=9, height=4, units="in", path="../output/pdf/arso", device=cairo_pdf)
+            #ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".eps", sep=""), p, width=9, height=4, units="in", path="../output/eps/arso", device=cairo_ps)
+            #ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".svg", sep=""), p, width=9, height=4, units="in", path="../output/svg/arso")
             ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".png", sep=""), p, width=9, height=4, units="in", path="../output/png/arso", dpi=500)
         }
     }
@@ -228,9 +232,9 @@ for (var in filenames) {
 
         p <- plotdata2(alldata, var, scen)
             
-        ggsave(paste("arso2_", scen, "_", var, ".pdf", sep=""), p, width=9, height=8, units="in", path="../output/pdf/arso", device=cairo_pdf)
-        ggsave(paste("arso2_", scen, "_", var, ".eps", sep=""), p, width=9, height=8, units="in", path="../output/eps/arso", device=cairo_ps)
-        ggsave(paste("arso2_", scen, "_", var, ".svg", sep=""), p, width=9, height=8, units="in", path="../output/svg/arso")
+        #ggsave(paste("arso2_", scen, "_", var, ".pdf", sep=""), p, width=9, height=8, units="in", path="../output/pdf/arso", device=cairo_pdf)
+        #ggsave(paste("arso2_", scen, "_", var, ".eps", sep=""), p, width=9, height=8, units="in", path="../output/eps/arso", device=cairo_ps)
+        #ggsave(paste("arso2_", scen, "_", var, ".svg", sep=""), p, width=9, height=8, units="in", path="../output/svg/arso")
         ggsave(paste("arso2_", scen, "_", var, ".png", sep=""), p, width=9, height=8, units="in", path="../output/png/arso", dpi=500)
     }
 }

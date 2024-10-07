@@ -22,7 +22,7 @@ Define constants:
 ```{r}
 periods <- c("1971-2000", "1981-2010", "1991-2020", "1986-2005")
 month_names <- c("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec")
-station_names <- c("Rateče", "Bilje", "Portorož", "Ljubljana - Bežigrad", "Kočevje", "Novo mesto", "Celje", "Šmartno pri Slovenj Gradcu", "Maribor", "Murska Sobota - Rakičan", "Cerklje ob Krki")
+station_names <- c("Rateče", "Bilje", "Portorož", "Ljubljana - Bežigrad", "Kočevje", "Novo mesto", "Celje", "Šmartno pri Slovenj Gradcu", "Maribor", "Murska Sobota - Rakičan", "Cerklje ob Krki", "Godnje")
 cit_types <- c("3S", "football", "motor boating", "cycling", "golf", "sailing", "cultural & hiking")
 h = 0.008 # thickness of clothing [cm]
 M = 25 # metabolic rate [cal/s]
@@ -803,7 +803,7 @@ plot_efftemp_data <- function(agg_data, station_name) {
 
 Plot CIT data for all stations:
 
-```{r, fig.width=9, fig.height=4, dev='svg'}
+```{r, fig.width=9, fig.height=4, dev='svglite'}
 for (station_name in station_names) {
     prepared_data <- import_daily_data(station_name) %>%
         prepare_daily_data()
@@ -826,7 +826,7 @@ for (station_name in station_names) {
 
 Plot HCI data for all stations:
 
-```{r, fig.width=9, fig.height=4, dev='svg'}
+```{r, fig.width=9, fig.height=4, dev='svglite'}
 for (station_name in station_names) {
     data <- calculate_hci_urban(
         prepare_RH_data(
@@ -842,7 +842,7 @@ for (station_name in station_names) {
 }
 ```
 
-```{r, fig.width=9, fig.height=4, dev='svg'}
+```{r, fig.width=9, fig.height=4, dev='svglite'}
 for (station_name in station_names) {
     data <- calculate_hci_beach(
         prepare_RH_data(
@@ -860,7 +860,7 @@ for (station_name in station_names) {
 
 Plot effective temperature data for all stations:
 
-```{r, fig.width=9, fig.height=3, dev='svg'}
+```{r, fig.width=9, fig.height=3, dev='svglite'}
 for (station_name in station_names) {
     data <- calculate_hci_urban(
         prepare_RH_data(
