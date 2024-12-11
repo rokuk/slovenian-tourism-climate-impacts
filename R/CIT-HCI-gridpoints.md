@@ -28,11 +28,12 @@ library(ggplot2)
 library(sf)
 ```
 
-    ## Linking to GEOS 3.10.2, GDAL 3.4.2, PROJ 8.2.1; sf_use_s2() is TRUE
+    ## Linking to GEOS 3.11.0, GDAL 3.5.3, PROJ 9.1.0; sf_use_s2() is TRUE
 
 ``` r
 library(rnaturalearth)
 library(ggspatial)
+library(svglite)
 ```
 
 Load country shape data for maps:
@@ -41,11 +42,14 @@ Load country shape data for maps:
 mapdata <- ne_load(scale = 10, type = 'countries', category = 'cultural', returnclass = "sf", destdir = "geodata")
 ```
 
-    ## OGR data source with driver: ESRI Shapefile 
-    ## Source: "/Users/rokuk/Documents/Work/BFUL/turizem-klima-projekcije-2022/R/geodata", layer: "ne_10m_admin_0_countries"
-    ## with 258 features
-    ## It has 161 fields
-    ## Integer64 fields read as strings:  NE_ID
+    ## Reading layer `ne_10m_admin_0_countries' from data source 
+    ##   `/Users/rokuk/Documents/Code.nosync/R/slovenian-tourism-climate-impacts/R/geodata/ne_10m_admin_0_countries.shp' 
+    ##   using driver `ESRI Shapefile'
+    ## Simple feature collection with 258 features and 161 fields
+    ## Geometry type: MULTIPOLYGON
+    ## Dimension:     XY
+    ## Bounding box:  xmin: -180 ymin: -90 xmax: 180 ymax: 83.6341
+    ## Geodetic CRS:  WGS 84
 
 ``` r
 # map data can be redownloaded to the geodata folder using:
@@ -120,8 +124,8 @@ same location due to missing data at some stations. We manually choose
 points on the model grid near the stations. The chosen points:
 
 ``` r
-names <- c("Rateče", "Bilje", "Koper", "Ljubljana", "Kočevje", "Cerklje ob Krki", "Novo mesto", "Celje", "Slovenj Gradec", "Maribor", "Murska Sobota")
-gridpoint_indexes <- c(706, 661, 698, 902, 979, 1141, 1060, 1064, 1066, 1186, 1347) # these values should be the same as in the file common.R
+names <- c("Rateče", "Bilje", "Koper", "Ljubljana", "Kočevje", "Cerklje ob Krki", "Novo mesto", "Celje", "Slovenj Gradec", "Maribor", "Murska Sobota", "Godnje")
+gridpoint_indexes <- c(706, 661, 698, 902, 979, 1141, 1060, 1064, 1066, 1186, 1347, 740) # these values should be the same as in the file common.R
 
 chosen_gridpoints <- data.frame(
     lon = grid %>% filter(grid$id %in% gridpoint_indexes & grid$month == "jan") %>% pull(lon),
@@ -135,14 +139,15 @@ print(chosen_gridpoints)
     ## 1  13.59662 45.87349
     ## 2  13.78092 45.55046
     ## 3  13.70789 46.42899
-    ## 4  14.53279 46.01841
-    ## 5  14.86844 45.69855
-    ## 6  15.17597 45.81731
-    ## 7  15.15160 46.25698
-    ## 8  15.13927 46.47682
-    ## 9  15.48491 45.93517
-    ## 10 15.61691 46.48851
-    ## 11 16.25027 46.61075
+    ## 4  13.91976 45.77627
+    ## 5  14.53279 46.01841
+    ## 6  14.86844 45.69855
+    ## 7  15.17597 45.81731
+    ## 8  15.15160 46.25698
+    ## 9  15.13927 46.47682
+    ## 10 15.48491 45.93517
+    ## 11 15.61691 46.48851
+    ## 12 16.25027 46.61075
 
 Plot map of Slovenia, model grid (black), selected stations (red) and
 selected grid points (blue):

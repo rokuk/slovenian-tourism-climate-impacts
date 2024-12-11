@@ -244,7 +244,15 @@ plotdata <- function(scen, var, data_at_skiresorts) {
         ylab(yaxislabels[match(var, variables)]) +
         guides(x = guide_axis(angle = 90)) +
         geom_errorbar(mapping = aes(ymax=upper, ymin=lower), stat="identity", size=0.3, width=0.9, position = position_dodge2(preserve = "single")) + 
-        theme(panel.grid.major.x = element_blank())
+        theme(panel.grid.major.x = element_blank(),
+              axis.text.x = element_text(size = 11), 
+              axis.text.y = element_text(size = 11),
+              axis.title = element_text(size = 12),
+              strip.text = element_text(size = 11),
+              legend.text = element_text(size = 10),
+              legend.title = element_text(size = 11),
+              plot.title = element_text(size = 14),
+              plot.subtitle = element_text(size = 12))
         
     return (p)
 }

@@ -590,8 +590,9 @@ assemble_cit_data <- function(index_data) {
     period1 <- filter(index_data, year >= 1971 & year <= 2000)
     period2 <- filter(index_data, year >= 1981 & year <= 2010)
     period3 <- filter(index_data, year >= 1991 & year <= 2020)
+    period4 <- filter(index_data, year >= 1986 & year <= 2005)
     
-    periodlist <- list(period1, period2, period3)
+    periodlist <- list(period1, period2, period3, period4)
 
     for (i in 1:length(periodlist)) {
         period_data <- rbind(period_data, data.frame(
@@ -614,8 +615,9 @@ assemble_hci_data <- function(index_data) {
     period1 <- filter(index_data, year >= 1971 & year <= 2000)
     period2 <- filter(index_data, year >= 1981 & year <= 2010)
     period3 <- filter(index_data, year >= 1991 & year <= 2020)
+    period4 <- filter(index_data, year >= 1986 & year <= 2005)
     
-    periodlist <- list(period1, period2, period3)
+    periodlist <- list(period1, period2, period3, period4)
 
     for (i in 1:length(periodlist)) {
         period_data <- rbind(period_data, data.frame(
@@ -779,8 +781,14 @@ plot_cit_data <- function(agg_data, station_name, cit_type) {
         xlab("period") +
         ylab("percentage of days per month") +
         scale_fill_manual(values = c("#C04330", "#EAAA00", "#009E53")) +
-        theme(axis.text.x = element_text(size = 10), 
-              axis.text.y = element_text(size = 10),
+        theme(axis.text.x = element_text(size = 11), 
+              axis.text.y = element_text(size = 11),
+              axis.title = element_text(size = 12),
+              strip.text = element_text(size = 11),
+              legend.text = element_text(size = 10),
+              legend.title = element_text(size = 11),
+              plot.title = element_text(size = 14),
+              plot.subtitle = element_text(size = 12),
               panel.grid.major = element_blank(),
               panel.grid.minor = element_blank())
     
@@ -804,8 +812,14 @@ plot_hci_urban <- function(agg_data, station_name) {
         xlab("period") +
         ylab("percentage of days per month") + 
         scale_fill_manual(values = c("#C04330", "#EAAA00", "#009E53")) +
-        theme(axis.text.x = element_text(size = 10), 
-              axis.text.y = element_text(size = 10),
+        theme(axis.text.x = element_text(size = 11), 
+              axis.text.y = element_text(size = 11),
+              axis.title = element_text(size = 12),
+              strip.text = element_text(size = 11),
+              legend.text = element_text(size = 10),
+              legend.title = element_text(size = 11),
+              plot.title = element_text(size = 14),
+              plot.subtitle = element_text(size = 12),
               panel.grid.major = element_blank(),
               panel.grid.minor = element_blank())
     
@@ -827,8 +841,14 @@ plot_hci_beach <- function(agg_data, station_name) {
         xlab("period") +
         ylab("percentage of days per month") + 
         scale_fill_manual(values = c("#C04330", "#EAAA00", "#009E53")) +
-        theme(axis.text.x = element_text(size = 10), 
-              axis.text.y = element_text(size = 10),
+        theme(axis.text.x = element_text(size = 11), 
+              axis.text.y = element_text(size = 11),
+              axis.title = element_text(size = 12),
+              strip.text = element_text(size = 11),
+              legend.text = element_text(size = 10),
+              legend.title = element_text(size = 11),
+              plot.title = element_text(size = 14),
+              plot.subtitle = element_text(size = 12),
               panel.grid.major = element_blank(),
               panel.grid.minor = element_blank())
     
@@ -850,7 +870,13 @@ plot_efftemp_data <- function(agg_data, station_name) {
                            limits = c(0, 26)) +
         labs(title=station_name) +
         ylab("average effective temperature [°C]") + 
-        theme(axis.text.y = element_text(size = 10), 
+        theme(axis.text.y = element_text(size = 11),
+              axis.title = element_text(size = 12),
+              strip.text = element_text(size = 11),
+              legend.text = element_text(size = 10),
+              legend.title = element_text(size = 11),
+              plot.title = element_text(size = 14),
+              plot.subtitle = element_text(size = 12),
               panel.grid.major.x = element_blank(),
               panel.grid.minor = element_blank(),
               axis.title.x=element_blank(),
@@ -965,7 +991,7 @@ for (station_name in (station_names)) {
     
             p <- plot_cit_data(data, station_name, cit_type)
     
-            print(p)
+            #print(p)
    
             ggsave(paste("arso-CIT_", gsub(" ", "_", station_name), "_", gsub(" ", "_", cit_type),  ".pdf", sep=""), p, width=9, height=4, units="in", path="../output/pdf/arso-CIT", device=cairo_pdf)
             ggsave(paste("arso-CIT_", gsub(" ", "_", station_name), "_", gsub(" ", "_", cit_type), ".eps", sep=""), p, width=9, height=4, units="in", path="../output/eps/arso-CIT", device=cairo_ps)

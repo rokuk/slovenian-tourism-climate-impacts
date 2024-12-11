@@ -30,7 +30,7 @@ library(ggplot2)
 library(sf)
 ```
 
-    ## Linking to GEOS 3.9.1, GDAL 3.4.0, PROJ 8.1.1; sf_use_s2() is TRUE
+    ## Linking to GEOS 3.11.0, GDAL 3.5.3, PROJ 9.1.0; sf_use_s2() is TRUE
 
 ``` r
 library(rnaturalearth)
@@ -48,7 +48,7 @@ nuts3_mapdata <- st_read("geodata/NUTS3_ID.gpkg")
 ```
 
     ## Reading layer `NUTS3_ID' from data source 
-    ##   `/Users/rokuk/Documents/Work/BFUL/Turizem-projekcije/R/geodata/NUTS3_ID.gpkg' 
+    ##   `/Users/rokuk/Documents/Code.nosync/R/slovenian-tourism-climate-impacts/R/geodata/NUTS3_ID.gpkg' 
     ##   using driver `GPKG'
     ## Simple feature collection with 1524 features and 8 fields
     ## Geometry type: MULTIPOLYGON
@@ -460,7 +460,15 @@ plotdata <- function(scen, var, data_at_skiresorts) {
         ylab(yaxislabels[match(var, variables)]) +
         guides(x = guide_axis(angle = 90)) +
         geom_errorbar(mapping = aes(ymax=upper, ymin=lower), stat="identity", size=0.3, width=0.9, position = position_dodge2(preserve = "single")) + 
-        theme(panel.grid.major.x = element_blank())
+        theme(panel.grid.major.x = element_blank(),
+              axis.text.x = element_text(size = 11), 
+              axis.text.y = element_text(size = 11),
+              axis.title = element_text(size = 12),
+              strip.text = element_text(size = 11),
+              legend.text = element_text(size = 10),
+              legend.title = element_text(size = 11),
+              plot.title = element_text(size = 14),
+              plot.subtitle = element_text(size = 12))
         
     return (p)
 }
@@ -474,6 +482,12 @@ for (var in variables) {
     }
 }
 ```
+
+    ## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+    ## ℹ Please use `linewidth` instead.
+    ## This warning is displayed once every 8 hours.
+    ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+    ## generated.
 
 ![](Snow_files/figure-gfm/unnamed-chunk-13-1.svg)<!-- -->![](Snow_files/figure-gfm/unnamed-chunk-13-2.svg)<!-- -->![](Snow_files/figure-gfm/unnamed-chunk-13-3.svg)<!-- -->![](Snow_files/figure-gfm/unnamed-chunk-13-4.svg)<!-- -->![](Snow_files/figure-gfm/unnamed-chunk-13-5.svg)<!-- -->![](Snow_files/figure-gfm/unnamed-chunk-13-6.svg)<!-- -->![](Snow_files/figure-gfm/unnamed-chunk-13-7.svg)<!-- -->![](Snow_files/figure-gfm/unnamed-chunk-13-8.svg)<!-- -->![](Snow_files/figure-gfm/unnamed-chunk-13-9.svg)<!-- -->![](Snow_files/figure-gfm/unnamed-chunk-13-10.svg)<!-- -->![](Snow_files/figure-gfm/unnamed-chunk-13-11.svg)<!-- -->![](Snow_files/figure-gfm/unnamed-chunk-13-12.svg)<!-- -->![](Snow_files/figure-gfm/unnamed-chunk-13-13.svg)<!-- -->![](Snow_files/figure-gfm/unnamed-chunk-13-14.svg)<!-- -->![](Snow_files/figure-gfm/unnamed-chunk-13-15.svg)<!-- -->
 

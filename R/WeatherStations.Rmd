@@ -153,7 +153,14 @@ plotdata <- function(alldata, variable, stat) {
               axis.title.x=element_blank(),
               axis.ticks.x=element_blank(),
               axis.text.x=element_blank(),
-              panel.spacing.y = unit(0.8, "lines"))
+              panel.spacing.y = unit(0.8, "lines"),
+              axis.text.y = element_text(size = 12),
+              axis.title = element_text(size = 12),
+              strip.text = element_text(size = 11),
+              legend.text = element_text(size = 12),
+              legend.title = element_text(size = 13),
+              plot.title = element_text(size = 14),
+              plot.subtitle = element_text(size = 13))
     
     return (p)
 }
@@ -180,7 +187,14 @@ plotdata2 <- function(alldata, variable, scen) {
               axis.ticks.x=element_blank(),
               axis.text.x=element_blank(),
               strip.text.y.right = element_text(angle = 0),
-              panel.spacing.y = unit(0.7, "lines"))
+              panel.spacing.y = unit(0.7, "lines"),
+              axis.text.y = element_text(size = 11),
+              axis.title = element_text(size = 12),
+              strip.text = element_text(size = 11),
+              legend.text = element_text(size = 10),
+              legend.title = element_text(size = 11),
+              plot.title = element_text(size = 14),
+              plot.subtitle = element_text(size = 12),)
     
     return (p)
 }
@@ -189,7 +203,7 @@ plotdata2 <- function(alldata, variable, scen) {
 ```{r, fig.width=9, fig.height=4, dev='svg'}
 for (var in filenames) {
     for (stat in distinct(alldata, station)$station) {
-        if (var != "snow" & stat != "Kočevje") { # no snow plots for Kočevje
+        if (var != "snow" | stat != "KOČEVJE") { # no snow plots for Kočevje
             p <- plotdata(alldata, var, stat)
             print(p)
         }
@@ -211,14 +225,14 @@ Save all the plots:
 ```{r, eval=FALSE}
 for (var in filenames) {
     for (stat_name in stationnames_raw) {
-        if (var != "snow" & stat_name != "Kočevje") { # no snow plots for Kočevje
+        if (var != "snow" | stat_name != "KOČEVJE") { # no snow plots for Kočevje
             print(paste(var, stat_name))
             
             p <- plotdata(alldata, var, stat_name)
         
-            #ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".pdf", sep=""), p, width=9, height=4, units="in", path="../output/pdf/arso", device=cairo_pdf)
-            #ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".eps", sep=""), p, width=9, height=4, units="in", path="../output/eps/arso", device=cairo_ps)
-            #ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".svg", sep=""), p, width=9, height=4, units="in", path="../output/svg/arso")
+            ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".pdf", sep=""), p, width=9, height=4, units="in", path="../output/pdf/arso", device=cairo_pdf)
+            ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".eps", sep=""), p, width=9, height=4, units="in", path="../output/eps/arso", device=cairo_ps)
+            ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".svg", sep=""), p, width=9, height=4, units="in", path="../output/svg/arso")
             ggsave(paste("arso1_", gsub(" ", "_", stat_name), "_", var, ".png", sep=""), p, width=9, height=4, units="in", path="../output/png/arso", dpi=500)
         }
     }
@@ -232,9 +246,9 @@ for (var in filenames) {
 
         p <- plotdata2(alldata, var, scen)
             
-        #ggsave(paste("arso2_", scen, "_", var, ".pdf", sep=""), p, width=9, height=8, units="in", path="../output/pdf/arso", device=cairo_pdf)
-        #ggsave(paste("arso2_", scen, "_", var, ".eps", sep=""), p, width=9, height=8, units="in", path="../output/eps/arso", device=cairo_ps)
-        #ggsave(paste("arso2_", scen, "_", var, ".svg", sep=""), p, width=9, height=8, units="in", path="../output/svg/arso")
+        ggsave(paste("arso2_", scen, "_", var, ".pdf", sep=""), p, width=9, height=8, units="in", path="../output/pdf/arso", device=cairo_pdf)
+        ggsave(paste("arso2_", scen, "_", var, ".eps", sep=""), p, width=9, height=8, units="in", path="../output/eps/arso", device=cairo_ps)
+        ggsave(paste("arso2_", scen, "_", var, ".svg", sep=""), p, width=9, height=8, units="in", path="../output/svg/arso")
         ggsave(paste("arso2_", scen, "_", var, ".png", sep=""), p, width=9, height=8, units="in", path="../output/png/arso", dpi=500)
     }
 }

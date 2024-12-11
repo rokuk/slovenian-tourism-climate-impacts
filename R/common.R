@@ -199,11 +199,12 @@ plotcitdata <- function(stat_id, scen, alldata) {
     subset$day_cat <- factor(subset$day_cat, levels=c("unf", "fair", "good"))
     subset$day_cat <- recode(subset$day_cat, unf="very poor", fair="marginal", good="ideal")
     subset$month <- factor(subset$month, levels=month_names)
+    subset$time_period <- factor(subset$time_period, levels=c("2021-2040", "2041-2060", "2081-2100", "1986-2005"))
     
     p <- ggplot(data=subset,
                 mapping=aes(x=time_period, y=datapoint, fill=day_cat)) +
         geom_col() +
-#        geom_errorbar(mapping=aes(ymax=upper, ymin=lower, color=day_cat)) + # to disable errorbars comment this line
+        geom_errorbar(mapping=aes(ymax=upper, ymin=lower, color=day_cat)) + # to disable errorbars comment this line
         scale_colour_manual(values = c("#490000", "#000000", "#005137"), guide="none") + # errorbar color
         facet_grid(~month) +
         scale_y_continuous(expand = expansion(mult = c(0, 0.02)), 
@@ -215,8 +216,14 @@ plotcitdata <- function(stat_id, scen, alldata) {
         xlab("period") +
         ylab("percentage of days per month") +
         scale_fill_manual(values = c("#C04330", "#EAAA00", "#009E53")) +
-        theme(axis.text.x = element_text(size = 10), 
-              axis.text.y = element_text(size=10),
+        theme(axis.text.x = element_text(size = 11), 
+              axis.text.y = element_text(size = 11),
+              axis.title = element_text(size = 12),
+              strip.text = element_text(size = 11),
+              legend.text = element_text(size = 10),
+              legend.title = element_text(size = 11),
+              plot.title = element_text(size = 14),
+              plot.subtitle = element_text(size = 12),
               panel.grid.major.x = element_blank(),
               panel.grid.minor.x = element_blank())
     
@@ -229,11 +236,12 @@ plothcidata <- function(stat_id, scen, alldata) {
     subset$day_cat <- factor(subset$day_cat, levels=c("unf", "fair", "good"))
     subset$day_cat <- recode(subset$day_cat, unf="very poor", fair="marginal", good="ideal")
     subset$month <- factor(subset$month, levels=month_names)
+    subset$time_period <- factor(subset$time_period, levels=c("2021-2040", "2041-2060", "2081-2100", "1986-2005"))
     
     p <- ggplot(data=subset,
                 mapping=aes(x=time_period, y=datapoint, fill=day_cat)) +
         geom_col() +
-#        geom_errorbar(mapping=aes(ymax=upper, ymin=lower, color=day_cat)) + # to disable errorbars comment this line
+        geom_errorbar(mapping=aes(ymax=upper, ymin=lower, color=day_cat)) + # to disable errorbars comment this line
         scale_colour_manual(values = c("#490000", "#000000", "#005137"), guide="none") + # errorbar color
         facet_grid(~month) +
         scale_y_continuous(expand = expansion(mult = c(0, 0.02)), 
@@ -245,8 +253,14 @@ plothcidata <- function(stat_id, scen, alldata) {
         xlab("period") +
         ylab("percentage of days per month") +
         scale_fill_manual(values = c("#C04330", "#EAAA00", "#009E53")) +
-        theme(axis.text.x = element_text(size = 10),
-              axis.text.y = element_text(size = 10),
+        theme(axis.text.x = element_text(size = 11), 
+              axis.text.y = element_text(size = 11),
+              axis.title = element_text(size = 12),
+              strip.text = element_text(size = 11),
+              legend.text = element_text(size = 10),
+              legend.title = element_text(size = 11),
+              plot.title = element_text(size = 14),
+              plot.subtitle = element_text(size = 12),
               panel.grid.major.x = element_blank(),
               panel.grid.minor.x = element_blank())
     
