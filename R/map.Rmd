@@ -1,0 +1,157 @@
+---
+title: "Map"
+output: github_document
+---
+
+## Importing libraries and data
+
+```{r}
+source("common.R", local = knitr::knit_global())
+
+library(dplyr)
+library(readr)
+library(ggplot2)
+library(sf)
+library(rnaturalearth)
+library(ggrepel)
+library(ggspatial)
+library(magick)
+```
+
+Read data from NUTS-3 geopackage (borders between regions). The file was 
+downloaded from auxillary files at [CDS](https://cds.climate.copernicus.eu/cdsapp#!/dataset/sis-tourism-snow-indicators?tab=doc).
+
+```{r}
+nuts3_mapdata <- st_read("geodata/NUTS3_ID.gpkg")
+```
+
+Select Slovenian NUTS-3 regions and get ther ids:
+
+```{r}
+slovenia_nuts3_mapdata <- filter(nuts3_mapdata, cntr_code=="SI")
+slovenia_nuts3_ids <- pull(slovenia_nuts3_mapdata, fid)
+slovenia_nuts3_names <- pull(slovenia_nuts3_mapdata, nuts_name)
+print(slovenia_nuts3_ids)
+```
+
+Read one file to get the model's grid:
+
+```{r}
+netcdfdata <- readcdf("../data/CIT/RCP4.5/mean/C3S422Lot2TEC_day-fair-cit-month-proj_mean_monthly_2021_2040_v1.nc", "day-fair-cit-month-proj")
+grid <- transform_coords(netcdfdata)
+```
+
+```{r}
+names <- c("Rateče", "Bilje", "Novo mesto")
+gridpoint_indexes <- c(706, 661, 1060) # these values should be the same as in the file common.R
+
+chosen_gridpoints <- data.frame(
+    lon = grid %>% filter(grid$id %in% gridpoint_indexes & grid$month == "jan") %>% pull(lon),
+    lat = grid %>% filter(grid$id %in% gridpoint_indexes & grid$month == "jan") %>% pull(lat)
+)
+
+print(chosen_gridpoints)
+```
+
+Import coordinates of the stations we are interested in:
+
+```{r}
+stationcoords <- read.csv("../data/stations.csv")
+stationcoords <- stationcoords[c(8,12,14),]
+print(stationcoords)
+```
+
+
+```{r}
+skidata <- read_csv("../data/skiresorts.csv", show_col_types = F) %>%
+    mutate(region_name=gsub("Å¡","š", slovenia_nuts3_names[match(nuts3id, slovenia_nuts3_ids)]))
+skidata$label <- "ski"
+print.data.frame(skidata)
+```
+
+Read macro tourism regions
+```{r}
+image <- image_read("../data/macro-regions.jpg")
+```
+
+## Plots
+
+```{r, dev='svg'}
+p <- ggplot() +
+    geom_sf(data=slovenia_nuts3_mapdata) +
+    geom_point(data=stationcoords, mapping = aes(lon, lat, color="stations"), size=2) +
+    geom_point(data=chosen_gridpoints, mapping = aes(lon, lat, color="selectedgrid"), size=2) +
+    geom_point(data=skidata, mapping=aes(lon, lat, color="ski")) +
+    geom_label_repel(data=skidata, mapping=aes(lon, lat, label=ski_resort), min.segment.length = 0.3, box.padding = 0.3, color="#d95f02", nudge_y = 46.86-skidata$lat, force=1) +
+    scale_color_manual(name="",
+                       breaks = c("selectedgrid", "stations", "ski"), values = c(selectedgrid = "#8729Ca", stations = "#1b9e77", ski = "#d95f02"), labels = c("selected Copernicus points", "selected ARSO stations", "ski resort")) +
+    coord_sf(xlim=c(13.3, 16.6), ylim=c(45.4, 46.9), crs=4326) +
+    xlab("longitude") +
+    ylab("latitude") +
+    annotation_scale(location="br", pad_y = unit(0.5, "cm")) +
+    theme_light() +
+    theme(legend.position="bottom", panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+         panel.background = element_rect(fill='transparent'),
+         plot.background = element_rect(fill='transparent', color=NA),
+         legend.background = element_rect(fill='transparent'))
+print(p)
+```
+
+```{r, dev='svg'}
+p <- ggplot() +
+    geom_point(data=stationcoords, mapping = aes(lon, lat, color="stations"), size=2) +
+    geom_point(data=chosen_gridpoints, mapping = aes(lon, lat, color="selectedgrid"), size=2) +
+    geom_point(data=skidata, mapping=aes(lon, lat, color="ski")) +
+    geom_label_repel(data=skidata, mapping=aes(lon, lat, label=ski_resort), min.segment.length = 0.3, box.padding = 0.3, color="#d95f02", nudge_y = 46.86-skidata$lat, force=1) +
+    scale_color_manual(name="",
+                       breaks = c("selectedgrid", "stations", "ski"), values = c(selectedgrid = "#8729Ca", stations = "#1b9e77", ski = "#d95f02"), labels = c("selected Copernicus points", "selected ARSO stations", "ski resort")) +
+    coord_sf(xlim=c(13.3, 16.6), ylim=c(45.4, 46.9), crs=4326) +
+    xlab("longitude") +
+    ylab("latitude") +
+    annotation_scale(location="br", pad_y = unit(0.5, "cm")) +
+    theme_light() +
+    theme(legend.position="bottom", panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+         panel.background = element_rect(fill='transparent'),
+         plot.background = element_rect(fill='transparent', color=NA),
+         legend.background = element_rect(fill='transparent'))
+print(p)
+```
+
+```{r, eval=FALSE}
+ggsave("map-paper2.pdf", p, width=6, height=4.5, units="in", path="../output/pdf/maps", device=cairo_pdf)
+ggsave("map-paper2.eps", p, width=6, height=4.5, units="in", path="../output/eps/maps", device=cairo_ps)
+ggsave("map-paper2.svg", p, width=6, height=4.5, units="in", path="../output/svg/maps")
+ggsave("map-paper2.png", p, width=6, height=4.5, units="in", path="../output/png/maps", dpi=500, bg='transparent')
+```
+
+```{r, dev='svg'}
+p <- ggplot() +
+    geom_point(data=stationcoords, mapping = aes(lon, lat, color="stations"), size=2) +
+    geom_point(data=chosen_gridpoints, mapping = aes(lon, lat, color="selectedgrid"), size=2) +
+    geom_point(data=skidata, mapping=aes(lon, lat, color="ski")) +
+    geom_label_repel(data=skidata, mapping=aes(lon, lat, label=ski_resort), min.segment.length = 0.3, box.padding = 0.3, color="#d95f02", nudge_y = 46.86-skidata$lat, force=1) +
+    scale_color_manual(name="",
+                       breaks = c("selectedgrid", "stations", "ski"), values = c(selectedgrid = "#8729Ca", stations = "#1b9e77", ski = "#d95f02"), labels = c("selected Copernicus points", "selected ARSO stations", "ski resort")) +
+    coord_sf(xlim=c(13.3, 16.6), ylim=c(45.4, 46.9), crs=4326) +
+    annotation_scale(location="br", pad_y = unit(0.5, "cm")) +
+    theme_light() +
+    theme(legend.position="bottom", panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+         panel.background = element_rect(fill='transparent'),
+         plot.background = element_rect(fill='transparent', color=NA),
+         legend.background = element_rect(fill='transparent'),
+         axis.text.x=element_blank(),
+         axis.text.y=element_blank(),
+         axis.title.x=element_blank(),
+         axis.title.y=element_blank(),
+         axis.ticks.x=element_blank(),
+         axis.ticks.y=element_blank(),
+         panel.border = element_blank())
+print(p)
+```
+
+```{r, eval=FALSE}
+ggsave("map-paper2-nl.pdf", p, width=6, height=4.5, units="in", path="../output/pdf/maps", device=cairo_pdf)
+ggsave("map-paper2-nl.eps", p, width=6, height=4.5, units="in", path="../output/eps/maps", device=cairo_ps)
+ggsave("map-paper2-nl.svg", p, width=6, height=4.5, units="in", path="../output/svg/maps")
+ggsave("map-paper2-nl.png", p, width=6, height=4.5, units="in", path="../output/png/maps", dpi=500, bg='transparent')
+```

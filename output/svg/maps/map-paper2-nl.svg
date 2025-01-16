@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='432.00pt' height='324.00pt' viewBox='0 0 432.00 324.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: none;'/>
+<defs>
+  <clipPath id='cpMC4wMHw0MzIuMDB8MC4wMHwzMjQuMDA='>
+    <rect x='0.00' y='0.00' width='432.00' height='324.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw0MzIuMDB8MC4wMHwzMjQuMDA=)'>
+</g>
+<defs>
+  <clipPath id='cpMi41Nnw0MjkuNDR8MC4wMHwzMjQuMDA='>
+    <rect x='2.56' y='0.00' width='426.89' height='324.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMi41Nnw0MjkuNDR8MC4wMHwzMjQuMDA=)'>
+<rect x='2.56' y='0.00' width='426.89' height='324.00' style='stroke-width: 1.07; stroke: none;' />
+</g>
+<g clip-path='url(#cpMC4wMHw0MzIuMDB8MC4wMHwzMjQuMDA=)'>
+</g>
+<defs>
+  <clipPath id='cpMTAuNzh8NDIzLjk2fDUuNDh8Mjc2LjU4'>
+    <rect x='10.78' y='5.48' width='413.19' height='271.10' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMTAuNzh8NDIzLjk2fDUuNDh8Mjc2LjU4)'>
+<rect x='10.78' y='5.48' width='413.19' height='271.10' style='stroke-width: 1.07; stroke: none;' />
+<circle cx='76.54' cy='84.03' r='2.49' style='stroke-width: 0.71; stroke: #1B9E77; fill: #1B9E77;' />
+<circle cx='66.49' cy='182.84' r='2.49' style='stroke-width: 0.71; stroke: #1B9E77; fill: #1B9E77;' />
+<circle cx='243.24' cy='198.24' r='2.49' style='stroke-width: 0.71; stroke: #1B9E77; fill: #1B9E77;' />
+<circle cx='63.32' cy='186.46' r='2.49' style='stroke-width: 0.71; stroke: #8729CA; fill: #8729CA;' />
+<circle cx='75.99' cy='95.19' r='2.49' style='stroke-width: 0.71; stroke: #8729CA; fill: #8729CA;' />
+<circle cx='243.09' cy='195.69' r='2.49' style='stroke-width: 0.71; stroke: #8729CA; fill: #8729CA;' />
+<circle cx='115.90' cy='138.98' r='1.95' style='stroke-width: 0.71; stroke: #D95F02; fill: #D95F02;' />
+<circle cx='49.62' cy='106.72' r='1.95' style='stroke-width: 0.71; stroke: #D95F02; fill: #D95F02;' />
+<circle cx='83.82' cy='85.86' r='1.95' style='stroke-width: 0.71; stroke: #D95F02; fill: #D95F02;' />
+<circle cx='169.22' cy='116.12' r='1.95' style='stroke-width: 0.71; stroke: #D95F02; fill: #D95F02;' />
+<circle cx='291.39' cy='78.06' r='1.95' style='stroke-width: 0.71; stroke: #D95F02; fill: #D95F02;' />
+<circle cx='262.89' cy='91.64' r='1.95' style='stroke-width: 0.71; stroke: #D95F02; fill: #D95F02;' />
+<circle cx='131.07' cy='135.60' r='1.95' style='stroke-width: 0.71; stroke: #D95F02; fill: #D95F02;' />
+<circle cx='91.06' cy='122.39' r='1.95' style='stroke-width: 0.71; stroke: #D95F02; fill: #D95F02;' />
+<line x1='133.95' y1='26.14' x2='116.04' y2='138.06' style='stroke-width: 1.07; stroke: #D95F02;' />
+<line x1='42.18' y1='30.03' x2='49.53' y2='105.80' style='stroke-width: 1.07; stroke: #D95F02;' />
+<line x1='66.47' y1='53.74' x2='83.35' y2='84.99' style='stroke-width: 1.07; stroke: #D95F02;' />
+<line x1='187.39' y1='26.23' x2='169.40' y2='115.21' style='stroke-width: 1.07; stroke: #D95F02;' />
+<line x1='297.20' y1='32.03' x2='291.51' y2='77.14' style='stroke-width: 1.07; stroke: #D95F02;' />
+<line x1='248.16' y1='31.65' x2='262.66' y2='90.73' style='stroke-width: 1.07; stroke: #D95F02;' />
+<line x1='137.76' y1='50.00' x2='131.14' y2='134.68' style='stroke-width: 1.07; stroke: #D95F02;' />
+<line x1='86.35' y1='29.99' x2='91.01' y2='121.47' style='stroke-width: 1.07; stroke: #D95F02;' />
+<polygon points='114.83,26.14 153.26,26.14 153.18,26.14 153.52,26.12 153.87,26.05 154.19,25.93 154.49,25.76 154.76,25.54 154.99,25.28 155.18,24.98 155.31,24.66 155.40,24.33 155.42,23.98 155.42,23.98 155.42,13.19 155.42,13.19 155.40,12.84 155.31,12.50 155.18,12.18 154.99,11.89 154.76,11.63 154.49,11.41 154.19,11.24 153.87,11.11 153.52,11.04 153.26,11.03 114.83,11.03 115.09,11.04 114.74,11.03 114.40,11.07 114.06,11.17 113.75,11.32 113.46,11.51 113.21,11.75 113.01,12.03 112.84,12.34 112.73,12.67 112.68,13.01 112.67,13.19 112.67,23.98 112.68,23.81 112.68,24.15 112.73,24.50 112.84,24.83 113.01,25.13 113.21,25.41 113.46,25.65 113.75,25.85 114.06,26.00 114.40,26.10 114.74,26.14 ' style='stroke-width: 0.53; stroke: #D95F02; fill: #FFFFFF;' />
+<text x='134.05' y='22.54' text-anchor='middle' style='font-size: 11.04px;fill: #D95F02; font-family: "Arial";' textLength='35.55px' lengthAdjust='spacingAndGlyphs'>Cerkno</text>
+<polygon points='26.62,30.03 57.71,30.03 57.62,30.03 57.97,30.02 58.31,29.95 58.63,29.82 58.93,29.65 59.20,29.43 59.43,29.17 59.62,28.88 59.75,28.56 59.84,28.22 59.87,27.87 59.87,27.87 59.87,17.08 59.87,17.08 59.84,16.73 59.75,16.40 59.62,16.08 59.43,15.78 59.20,15.52 58.93,15.30 58.63,15.13 58.31,15.00 57.97,14.94 57.71,14.92 26.62,14.92 26.88,14.94 26.53,14.92 26.18,14.96 25.85,15.06 25.54,15.21 25.25,15.41 25.00,15.65 24.79,15.92 24.63,16.23 24.52,16.56 24.46,16.91 24.46,17.08 24.46,27.87 24.46,27.70 24.46,28.05 24.52,28.39 24.63,28.72 24.79,29.03 25.00,29.30 25.25,29.55 25.54,29.74 25.85,29.89 26.18,29.99 26.53,30.03 ' style='stroke-width: 0.53; stroke: #D95F02; fill: #FFFFFF;' />
+<text x='42.16' y='26.43' text-anchor='middle' style='font-size: 11.04px;fill: #D95F02; font-family: "Arial";' textLength='28.21px' lengthAdjust='spacingAndGlyphs'>Kanin</text>
+<polygon points='28.57,53.74 101.95,53.74 101.87,53.74 102.21,53.72 102.55,53.65 102.88,53.53 103.18,53.36 103.45,53.14 103.68,52.88 103.87,52.58 104.00,52.26 104.08,51.92 104.11,51.58 104.11,51.58 104.11,40.79 104.11,40.79 104.08,40.44 104.00,40.10 103.87,39.78 103.68,39.49 103.45,39.23 103.18,39.01 102.88,38.83 102.55,38.71 102.21,38.64 101.95,38.63 28.57,38.63 28.83,38.64 28.48,38.63 28.14,38.67 27.80,38.77 27.49,38.91 27.20,39.11 26.95,39.35 26.74,39.63 26.58,39.94 26.47,40.27 26.42,40.61 26.41,40.79 26.41,51.58 26.42,51.40 26.42,51.75 26.47,52.10 26.58,52.43 26.74,52.73 26.95,53.01 27.20,53.25 27.49,53.45 27.80,53.60 28.14,53.69 28.48,53.74 ' style='stroke-width: 0.53; stroke: #D95F02; fill: #FFFFFF;' />
+<text x='65.26' y='50.14' text-anchor='middle' style='font-size: 11.04px;fill: #D95F02; font-family: "Arial";' textLength='70.50px' lengthAdjust='spacingAndGlyphs'>Kranjska Gora</text>
+<polygon points='166.19,26.23 208.92,26.23 208.83,26.23 209.18,26.22 209.52,26.15 209.84,26.02 210.14,25.85 210.41,25.63 210.64,25.37 210.83,25.08 210.96,24.76 211.05,24.42 211.08,24.07 211.08,24.07 211.08,13.28 211.08,13.28 211.05,12.93 210.96,12.60 210.83,12.28 210.64,11.98 210.41,11.72 210.14,11.50 209.84,11.33 209.52,11.21 209.18,11.14 208.92,11.12 166.19,11.12 166.45,11.14 166.10,11.12 165.76,11.16 165.42,11.26 165.11,11.41 164.82,11.61 164.57,11.85 164.37,12.13 164.20,12.43 164.09,12.76 164.04,13.11 164.03,13.28 164.03,24.07 164.04,23.90 164.04,24.25 164.09,24.59 164.20,24.92 164.37,25.23 164.57,25.51 164.82,25.75 165.11,25.94 165.42,26.09 165.76,26.19 166.10,26.23 ' style='stroke-width: 0.53; stroke: #D95F02; fill: #FFFFFF;' />
+<text x='187.55' y='22.63' text-anchor='middle' style='font-size: 11.04px;fill: #D95F02; font-family: "Arial";' textLength='39.84px' lengthAdjust='spacingAndGlyphs'>Krvavec</text>
+<polygon points='276.78,32.03 317.67,32.03 317.59,32.03 317.93,32.02 318.27,31.95 318.60,31.82 318.90,31.65 319.17,31.43 319.40,31.17 319.59,30.88 319.72,30.56 319.80,30.22 319.83,29.87 319.83,29.87 319.83,19.08 319.83,19.08 319.80,18.73 319.72,18.40 319.59,18.08 319.40,17.78 319.17,17.52 318.90,17.30 318.60,17.13 318.27,17.00 317.93,16.93 317.67,16.92 276.78,16.92 277.04,16.93 276.69,16.92 276.34,16.96 276.01,17.06 275.70,17.21 275.41,17.41 275.16,17.65 274.95,17.92 274.79,18.23 274.68,18.56 274.62,18.91 274.62,19.08 274.62,29.87 274.62,29.70 274.62,30.05 274.68,30.39 274.79,30.72 274.95,31.03 275.16,31.30 275.41,31.55 275.70,31.74 276.01,31.89 276.34,31.99 276.69,32.03 ' style='stroke-width: 0.53; stroke: #D95F02; fill: #FFFFFF;' />
+<text x='297.22' y='28.43' text-anchor='middle' style='font-size: 11.04px;fill: #D95F02; font-family: "Arial";' textLength='38.02px' lengthAdjust='spacingAndGlyphs'>Pohorje</text>
+<polygon points='232.11,31.65 263.81,31.65 263.72,31.64 264.07,31.63 264.41,31.56 264.73,31.44 265.04,31.26 265.30,31.04 265.53,30.78 265.72,30.49 265.86,30.17 265.94,29.83 265.97,29.49 265.97,29.49 265.97,18.69 265.97,18.69 265.94,18.35 265.86,18.01 265.72,17.69 265.53,17.40 265.30,17.14 265.04,16.92 264.73,16.74 264.41,16.62 264.07,16.55 263.81,16.53 232.11,16.53 232.37,16.55 232.03,16.54 231.68,16.58 231.35,16.67 231.03,16.82 230.75,17.02 230.50,17.26 230.29,17.54 230.13,17.85 230.02,18.18 229.96,18.52 229.95,18.69 229.95,29.49 229.96,29.31 229.96,29.66 230.02,30.00 230.13,30.33 230.29,30.64 230.50,30.92 230.75,31.16 231.03,31.36 231.35,31.51 231.68,31.60 232.03,31.64 ' style='stroke-width: 0.53; stroke: #D95F02; fill: #FFFFFF;' />
+<text x='247.96' y='28.05' text-anchor='middle' style='font-size: 11.04px;fill: #D95F02; font-family: "Arial";' textLength='28.81px' lengthAdjust='spacingAndGlyphs'>Rogla</text>
+<polygon points='114.87,50.00 160.66,50.00 160.57,50.00 160.92,49.99 161.26,49.92 161.59,49.79 161.89,49.62 162.16,49.40 162.39,49.14 162.57,48.85 162.71,48.53 162.79,48.19 162.82,47.84 162.82,47.84 162.82,37.05 162.82,37.05 162.79,36.70 162.71,36.37 162.57,36.05 162.39,35.75 162.16,35.49 161.89,35.27 161.59,35.10 161.26,34.98 160.92,34.91 160.66,34.89 114.87,34.89 115.13,34.91 114.78,34.89 114.44,34.93 114.10,35.03 113.79,35.18 113.50,35.38 113.25,35.62 113.04,35.90 112.88,36.20 112.77,36.53 112.72,36.88 112.71,37.05 112.71,47.84 112.72,47.67 112.72,48.02 112.77,48.36 112.88,48.69 113.04,49.00 113.25,49.28 113.50,49.52 113.79,49.71 114.10,49.86 114.44,49.96 114.78,50.00 ' style='stroke-width: 0.53; stroke: #D95F02; fill: #FFFFFF;' />
+<text x='137.76' y='46.40' text-anchor='middle' style='font-size: 11.04px;fill: #D95F02; font-family: "Arial";' textLength='42.91px' lengthAdjust='spacingAndGlyphs'>Stari Vrh</text>
+<polygon points='70.81,29.99 101.90,29.99 101.81,29.99 102.16,29.98 102.50,29.91 102.82,29.78 103.12,29.61 103.39,29.39 103.62,29.13 103.81,28.84 103.94,28.52 104.03,28.18 104.06,27.83 104.06,27.83 104.06,17.04 104.06,17.04 104.03,16.69 103.94,16.35 103.81,16.03 103.62,15.74 103.39,15.48 103.12,15.26 102.82,15.09 102.50,14.96 102.16,14.89 101.90,14.88 70.81,14.88 71.07,14.89 70.72,14.88 70.37,14.92 70.04,15.02 69.73,15.17 69.44,15.37 69.19,15.61 68.98,15.88 68.82,16.19 68.71,16.52 68.65,16.86 68.65,17.04 68.65,27.83 68.65,27.66 68.65,28.01 68.71,28.35 68.82,28.68 68.98,28.99 69.19,29.26 69.44,29.50 69.73,29.70 70.04,29.85 70.37,29.95 70.72,29.99 ' style='stroke-width: 0.53; stroke: #D95F02; fill: #FFFFFF;' />
+<text x='86.35' y='26.39' text-anchor='middle' style='font-size: 11.04px;fill: #D95F02; font-family: "Arial";' textLength='28.21px' lengthAdjust='spacingAndGlyphs'>Vogel</text>
+<rect x='328.21' y='255.32' width='29.56' height='7.09' style='stroke-width: 0.75; fill: #000000;' />
+<rect x='357.77' y='255.32' width='29.56' height='7.09' style='stroke-width: 0.75; fill: #FFFFFF;' />
+<rect x='387.32' y='255.32' width='29.56' height='7.09' style='stroke-width: 0.75; fill: #000000;' />
+<text x='323.96' y='261.88' text-anchor='end' style='font-size: 8.40px; font-family: "Arial";' textLength='22.85px' lengthAdjust='spacingAndGlyphs'>60 km</text>
+</g>
+<g clip-path='url(#cpMC4wMHw0MzIuMDB8MC4wMHwzMjQuMDA=)'>
+<rect x='52.42' y='290.28' width='329.91' height='28.24' style='stroke-width: 1.07; stroke: none;' />
+<rect x='63.38' y='295.76' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none;' />
+<circle cx='72.02' cy='304.40' r='2.49' style='stroke-width: 0.71; stroke: #8729CA; fill: #8729CA;' />
+<rect x='197.26' y='295.76' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none;' />
+<circle cx='205.90' cy='304.40' r='2.49' style='stroke-width: 0.71; stroke: #1B9E77; fill: #1B9E77;' />
+<rect x='318.40' y='295.76' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none;' />
+<circle cx='327.04' cy='304.40' r='1.95' style='stroke-width: 0.71; stroke: #D95F02; fill: #D95F02;' />
+<text x='86.14' y='307.55' style='font-size: 8.80px; font-family: "Arial";' textLength='105.65px' lengthAdjust='spacingAndGlyphs'>selected Copernicus points</text>
+<text x='220.02' y='307.55' style='font-size: 8.80px; font-family: "Arial";' textLength='92.90px' lengthAdjust='spacingAndGlyphs'>selected ARSO stations</text>
+<text x='341.16' y='307.55' style='font-size: 8.80px; font-family: "Arial";' textLength='35.68px' lengthAdjust='spacingAndGlyphs'>ski resort</text>
+</g>
+</svg>
