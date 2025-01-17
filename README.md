@@ -10,6 +10,7 @@ Code is in the [R](/R) folder:
 - Analysis of snow indicators from Copernicus is in [Snow.md](/R/Snow.md)
 - Analysis for a few chosen ARSO stations is in [WeatherStations.md](/R/WeatherStations.md)
 - Calculation of CIT, HCI and ET from ARSO data is in [ARSO-CIT-HCI.md](/R/ARSO-CIT-HCI.md)
+- The map of ski resorts and the three chosen locations is in [map.md](/R/map.md)
 
 Figures are in the [output](/output) folder.
 
